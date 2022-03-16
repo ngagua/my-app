@@ -13,7 +13,7 @@ enum Difficulty {
   Difficult = "Difficult",
 
 }
-enum states {
+enum States {
   Todo = "Todo",
   inProgress = "inProgress",
   Done = "Done",
@@ -45,6 +45,7 @@ export class AppComponent {
 
 
   difficulty = Difficulty;
+  state = States;
 
 
   addTodo() {
