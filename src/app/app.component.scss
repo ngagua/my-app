@@ -1,0 +1,44 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.todos {
+  &__nav-bar {
+    display: flex;
+    gap: 10px;
+  }
+  &__sections {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+
+    section {
+      width: 200px;
+      border: 1px solid black;
+    }
+  }
+
+  &__content {
+    display: flex;
+    width: 160px;
+
+    border: 1px solid green;
+    justify-content: space-between;
+    margin: 20px;
+  }
+
+  &__title {
+    display: flex;
+    border: 1px solid blue;
+  }
+  &_buttons {
+    button {
+      margin-right: 10px;
+    }
+  }
+}

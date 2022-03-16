@@ -1,0 +1,69 @@
+<div class="todos">
+  <header>
+    <h1>To do list</h1>
+    <nav class="todos__nav-bar">
+      <input type="text" name="inputTodo" class="todo__input" placeholder="Task Name" [(ngModel)]="addTask.content" />
+      <div class="todos__select-level">
+        <select name="select-level" class="options" [(ngModel)]="addTask.difficulty">
+          <option [ngValue]="undefined" selected hidden>Select</option>
+          <option [ngValue]="selected" *ngFor="let selected of difficultyOptions">{{selected}}</option>
+        </select>
+      </div>
+      <button (click)="addTodo()" class="todos__button" type="submit" value="add todo">
+        Add
+      </button>
+    </nav>
+  </header>
+
+  <i class="fa fa-user fa-5x"></i>
+
+
+  <div class="todos__sections">
+    <section class="todos_To-do">
+      <div class="todos__title">
+        <i class="fa-solid fa-bars"></i>
+        <p>To-do</p>
+      </div>
+      <div *ngFor="let todo of todos; let i = index" class="todos__content">
+        <div class="id">{{ i + 1 }}.</div>
+        <div class="content">{{ todo.content }}</div>
+        <div>{{todo.difficulty}}</div>
+        <button (click)="moveToProgress(i)" class="todos__move-to-inprogress">
+          >
+        </button>
+        <button (click)="removeTask(i)" class="todos__remove">X</button>
+      </div>
+    </section>
+
+    <section class="todos_in-progress">
+      <div class="todos__title">
+        <i class="fa-solid fa-bars"></i>
+        <p>In progress</p>
+      </div>
+      <div *ngFor="let todo of inProgress; let i = index" class="todos__content">
+        <div class="id">{{ i + 1 }}.</div>
+        <div class="content">{{ todo.content }}</div>
+        <div>{{ todo.difficulty }}</div>
+        <button (click)="ProgressTotodo(i)" class="todos__move-to-inprogress">
+          < </button>
+            <button (click)="moveToDone(i)" class="todos__remove">></button>
+      </div>
+    </section>
+
+
+
+    <section class="todos_Done">
+      <div class="todos__title">
+        <i class="fa-solid fa-bars"></i>
+        <p>Done</p>
+      </div>
+      <div *ngFor="let todo of done; let i = index" class="todos__content">
+        <div class="id">{{ i + 1 }}.</div>
+        <div class="content">{{ todo.content }}</div>
+        <div>{{todo.difficulty }}</div>
+        <button (click)="doneToProgress(i)" class="todos__remove">
+          < </button>
+      </div>
+    </section>
+  </div>
+</div>
