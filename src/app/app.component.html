@@ -27,7 +27,7 @@
       <div *ngFor="let todo of todos; let i = index" class="todos__content">
         <div class="id">{{ i + 1 }}.</div>
         <div class="content">{{ todo.content }}</div>
-        <div>{{todo.difficulty}}</div>
+        <div>{{todo.difficulty}} {{todo.state}}</div>
         <button (click)="moveToProgress(i)" class="todos__move-to-inprogress">
           >
         </button>

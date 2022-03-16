@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
 
-interface Tasks {
-  content: string,
-  difficulty: Difficulty | undefined;
-}
-
 
 interface AddTasks {
   content: string,
   difficulty: Difficulty | undefined;
+  state: states | undefined;
 }
 
 enum Difficulty {
   Easy = "Easy",
   Medium = "Medium",
   Difficult = "Difficult",
+
+}
+enum states {
+  Todo = "Todo",
+  inProgress = "inProgress",
+  Done = "Done",
 
 }
 
@@ -34,10 +36,12 @@ export class AppComponent {
   addTask: AddTasks = {
     content: "",
     difficulty: undefined,
+    state: undefined
+
   }
-  todos: Tasks[] = []
-  inProgress: Tasks[] = []
-  done: Tasks[] = []
+  todos: AddTasks[] = []
+  inProgress: AddTasks[] = []
+  done: AddTasks[] = []
 
 
   difficulty = Difficulty;
@@ -50,12 +54,14 @@ export class AppComponent {
 
     this.todos.push({
       content: this.addTask.content,
-      difficulty: this.addTask.difficulty
+      difficulty: this.addTask.difficulty,
+      state: this.addTask.state
     });
 
     this.addTask = {
       content: "",
       difficulty: undefined,
+      state: undefined
     }
 
   }
